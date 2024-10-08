@@ -1,4 +1,9 @@
 
+
+https://github.com/DaddyCherry/ai-102
+
+---
+
 python -m venv myenv
 . myenv/bin/activate 
 
