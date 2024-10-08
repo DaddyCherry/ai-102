@@ -571,6 +571,35 @@ pip install azure-storage-blob
 ---
 # 8. 音声の認識と合成
 
+    音声サービスのキーとエンドポイントを取得し、envファイルに設定。
+
+    pip install azure-cognitiveservices-speech
+    pip install --upgrade pip setuptools wheel
+    pip install playsound
+
+    python ./mslearn-ai-language/Labfiles/07-speech/Python/speaking-clock/speaking-clock.py
+
+    # 全体の流れ
+        - 環境設定の読み込み: .envファイルからAzureの音声サービスキーとリージョンを取得。
+        - 音声入力の取得: ユーザーがマイクに話しかけると、音声認識が実行され、テキストに変換されます。
+        - 時刻の確認: 変換されたテキストが「what time is it?」の場合、TellTime()関数が呼び出され、現在の時刻が音声で返されます。
+        - 時刻の返答: 時刻を音声で合成し、結果をコンソールに表示します。
+
+    # 出力例
+        playsound is relying on a python 2 subprocess. Please use `pip3 install PyObjC` if you want playsound to run more efficiently.
+        Ready to use speech service in: japaneast
+        Speak now...
+
+        What time is it?
+            Info: on_underlying_io_bytes_received: Close frame received
+            Info: on_underlying_io_bytes_received: closing underlying io.
+            Info: on_underlying_io_close_complete: uws_state: 6.
+
+        TellTime
+        The time is 17:16
+            Info: on_underlying_io_bytes_received: Close frame received
+            Info: on_underlying_io_bytes_received: closing underlying io.
+            Info: on_underlying_io_close_complete: uws_state: 6.
 
 
 ---
