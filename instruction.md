@@ -579,6 +579,9 @@ pip install azure-storage-blob
 
     python ./mslearn-ai-language/Labfiles/07-speech/Python/speaking-clock/speaking-clock.py
 
+        マイクで話しかけると、音声認識が実行され、テキストに変換される。
+        「what time is it?」と話しかけると、時刻を音声で合成し、結果をコンソールに表示する。
+
     # 全体の流れ
         - 環境設定の読み込み: .envファイルからAzureの音声サービスキーとリージョンを取得。
         - 音声入力の取得: ユーザーがマイクに話しかけると、音声認識が実行され、テキストに変換されます。
