@@ -30,6 +30,19 @@ pip install azure-storage-blob
     ソフトウェア会社を経営しています。
     Language: Japanese
 
+    # 全体の流れ
+        - 必要なパッケージ (dotenv, os, azure.core.credentials, azure.ai.textanalytics) をインポート
+        - .envファイルから環境変数を読み込む (load_dotenv() 使用)
+        - 環境変数 AI_SERVICE_ENDPOINT と AI_SERVICE_KEY を取得
+        - メイン関数 (main) を定義:
+        - ユーザーからの入力を繰り返し受け付けるループを開始
+        - ユーザーが「quit」と入力するまでテキストを取得
+        - GetLanguage 関数を呼び出し、入力テキストの言語を検出し、表示
+        - 言語検出関数 (GetLanguage) を定義:
+        - AzureのTextAnalyticsClientを作成
+        - detect_languageメソッドを呼び出し、テキストの言語を検出し、名前を返す
+        - スクリプトが直接実行された場合、main関数を呼び出す
+
 
 ---
 # 2. Azure AI Vision を使用して画像を分析する
@@ -565,8 +578,102 @@ pip install azure-storage-blob
 ---
 # 6. 質問応答ソリューションを作成する
 
+    Azure ポータル
+        言語サービス（カスタム質疑応答）を作成
+    Language Studio
+        https://language.cognitive.azure.com/home
+        リソースを選択
+        質問応答プロジェクト（Custom question answering）を作成する
+            [基本情報の入力] ページで、次の詳細を入力します。
+            名前LearnFAQ
+            説明: FAQ for Microsoft Learn
+            回答が返されない場合の既定の回答: Sorry, I don't understand the question
+        
+        ナレッジ ベースにソースを追加する
+            ソースの追加（Add source）を選択
+            名前: Learn FAQ Page
+            URL: https://docs.microsoft.com/en-us/learn/support/faq
+
+        ナレッジ ベースを編集する
+            ソース: https://docs.microsoft.com/en-us/learn/support/faq
+            質問: What are Microsoft credentials?
+            回答: Microsoft credentials enable you to validate and prove your skills with Microsoft technologies.
+
+            Alternate questions
+                ソース: https://docs.microsoft.com/en-us/learn/support/faq
+                質問: What are Microsoft credentials?
+                回答: Microsoft credentials enable you to validate and prove your skills with Microsoft technologies.
+
+            Follow up prompts
+                ユーザーへのプロンプトに表示されるテキスト: Learn more about credentials.
+                [新しいペアへのリンクの作成] を選択し、「You can learn more about credentials on the [Microsoft credentials page](https://docs.microsoft.com/learn/credentials/).」
+            
+             [保存]
+        
+        ナレッジ ベースのトレーニングとテスト
+            [テスト] を選択
+            Hello
+            What is Microsoft Learn?
+            Thanks!
+            Tell me about Microsoft credentials
+        
+        ナレッジ ベースをデプロイする
+            [デプロイ] を選択
+            [予測 URL の取得] を選択してナレッジ ベースの REST エンドポイントを表示
+            https://demo-lang241009.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=LaernFAQ&api-version=2021-10-01&deploymentName=production
+    
+
+    pip install azure-ai-language-questionanswering
+
+    python ./mslearn-ai-language/Labfiles/02-qna/Python/qna-app/qna-app.py
+
+    What is a learning path?
+
+
+
 ---
 # 7. 言語サービスで言語理解モデルを作成する
+
+    Language Studio
+        Create new（会話言語理解：Conversation Language Understanding）
+            名前: Clock
+            発話の主要言語: 英語
+            プロジェクトで複数の言語を有効にする: オフ
+            説明: Natural language clock
+
+        意図の作成
+            GetTime
+            GetDay
+            GetDate
+        
+        各意図にサンプル発話でラベルを付ける
+            データのラベル付け
+            GetTime
+                what is the time?
+                what time is it?
+                tell me the time
+            GetDay
+                what day is it?
+                what's the day?
+                what is the day today?
+                what day of the week is it?
+            GetDate
+                what date is it?
+                what's the date?
+                what is the date today?
+                what's today's date?
+            [Save Changes]
+        
+        モデルのトレーニングとテスト
+            Start training
+            [Name] Clock
+        
+        モデルのデプロイメント
+            [Name] production
+            [Deploy]
+            テストの実行
+
+
 
 ---
 # 8. 音声の認識と合成
