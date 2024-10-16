@@ -58,8 +58,8 @@ def TellTime():
 
 
     # Configure speech synthesis
-    speech_config.speech_synthesis_voice_name = "en-GB-RyanNeural"
-    # speech_config.speech_synthesis_voice_name = 'en-GB-LibbyNeural' # change this
+    # speech_config.speech_synthesis_voice_name = "en-GB-RyanNeural"
+    speech_config.speech_synthesis_voice_name = 'en-GB-LibbyNeural' # change this
     speech_synthesizer = speech_sdk.SpeechSynthesizer(speech_config)
     
 

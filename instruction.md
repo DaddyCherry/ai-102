@@ -630,6 +630,45 @@ pip install azure-storage-blob
     What is a learning path?
 
 
+    curl -X POST "https://demo-lang241009.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=LaernFAQ&api-version=2021-10-01&deploymentName=production" \
+    -H "Ocp-Apim-Subscription-Key: 159d149f2419447b8982802370f3517d" \
+    -H "Content-Type: application/json" \
+    -d '{
+    "question": "Learn more about credentials"
+    }'
+
+        HTTP/1.1 200 OK
+        Content-Length: 420
+        Content-Type: application/json; charset=utf-8
+        csp-billing-usage: CognitiveServices.TextAnalytics.QuestionAnsweringTextRecords=1
+        x-envoy-upstream-service-time: 611
+        apim-request-id: 3fe27e16-6771-46ac-9f3b-63b8025a784f
+        Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+        x-content-type-options: nosniff
+        x-ms-region: East US
+        Date: Thu, 10 Oct 2024 02:32:07 GMT
+        Connection: close
+
+        {
+        "answers": [
+            {
+            "questions": [
+                "Learn more about credentials"
+            ],
+            "answer": "You can learn more about credentials on the [Microsoft credentials page](https://docs.microsoft.com/learn/credentials/).",
+            "confidenceScore": 1.0,
+            "id": 65,
+            "source": "Editorial",
+            "metadata": {},
+            "dialog": {
+                "isContextOnly": false,
+                "prompts": []
+            }
+            }
+        ]
+        }
+
+
 
 ---
 # 7. 言語サービスで言語理解モデルを作成する
@@ -726,4 +765,31 @@ pip install azure-storage-blob
 
 ---
 # 13. フォームからデータを抽出する
+
+    Document Intelligence
+        ページで、次のコマンドを使用してリソースを構成します。
+        サブスクリプション: Azure サブスクリプション。
+        リソース グループ: DocIntelligenceResources などの 一意の名前を持つリソース グループを選択または作成します。
+        リージョン: 最寄りのリージョンを選択します。
+        名前: グローバルに一意の名前を入力します。
+        価格レベル: Free F0** を選択します (Free レベルを利用できない場合は、**Standard S0 を選択します)。
+
+    ストレージアカウント
+        sample-formsのファイル群をsampleformsコンテナーにアップロード
+
+    Document Intelligence Studio
+        https://documentintelligence.ai.azure.com/studio
+        カスタム抽出モデル - プロジェクトの作成
+            プロジェクト名: CustomModel
+            サービス リソースの構成: 作成したDocument Intelligence リソースを選択
+            トレーニング データ ソースの接続: ストレージアカウントのsampleformsコンテナーを選択
+            
+        トレーニング
+            [Train]ボタン押下
+            Model ID: CustomModel
+            ※ トレーニングが完了するまで待つ（10分程度かかる）
+            Status: Succeeded（runningはトレーニング中という意味）
+
+    python ./mslearn-ai-document-intelligence/Labfiles/02-custom-document-intelligence/Python/test-model.py
+
 

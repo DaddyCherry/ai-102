@@ -1,0 +1,11 @@
+
+
+
+###
+curl -X POST "https://demo-lang241009.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=LaernFAQ&api-version=2021-10-01&deploymentName=production" \
+-H "Ocp-Apim-Subscription-Key: 159d149f2419447b8982802370f3517d" \
+-H "Content-Type: application/json" \
+-d '{
+  "question": "Learn more about credentials"
+}'
+

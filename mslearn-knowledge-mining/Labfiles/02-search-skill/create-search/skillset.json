@@ -4,7 +4,7 @@
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
         "description": "Azure AI services",
-        "key": "YOUR_AI_SERVICES_KEY"
+        "key": "6760b11e4aca4c9b84568d4029528b9b"
       },
     "skills": [
       {
@@ -27,44 +27,6 @@
           {
             "name": "sentiment",
             "targetName": "sentimentLabel"
-          }
-        ]
-      },
-      {
-        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-        "name": "#1",
-        "description": null,
-        "context": "/document/merged_content",
-        "categories": [
-          "Person",
-          "Quantity",
-          "Organization",
-          "URL",
-          "Email",
-          "Location",
-          "DateTime"
-        ],
-        "defaultLanguageCode": "en",
-        "minimumPrecision": null,
-        "includeTypelessEntities": null,
-        "inputs": [
-          {
-            "name": "text",
-            "source": "/document/merged_content"
-          },
-          {
-            "name": "languageCode",
-            "source": "/document/language"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "locations",
-            "targetName": "locations"
-          },
-          {
-            "name": "entities",
-            "targetName": "entities"
           }
         ]
       },
