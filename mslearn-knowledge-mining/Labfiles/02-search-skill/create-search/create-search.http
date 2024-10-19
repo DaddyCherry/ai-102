@@ -1,14 +1,14 @@
 
 
 ###
-curl -X POST https://demoaisearch241016.search.windows.net/datasources?api-version=2020-06-30 -H "Content-Type: application/json" -H "api-key: r8llfOngzUQuH8vemC2TU6W5nM9LSuquSPwhygAJRrAzSeD3RZqR" -d @data_source.json
+curl -X POST https://demoseaerafaewr.search.windows.net/datasources?api-version=2020-06-30 -H "Content-Type: application/json" -H "api-key: DC6GKG3iZHoofPqHshrokUqm6m8Uzzrq6CAFN2Rk0pAzSeDp0OXe" -d @data_source.json
 
 
 ###
-curl -X PUT https://demoaisearch241016.search.windows.net/skillsets/margies-custom-skillset?api-version=2020-06-30 -H "Content-Type: application/json" -H "api-key: Ipvhlx13u6IqdaTatBealb8b7OQNRJUNAdqZB4dmxtAzSeCIa7Ln" -d @skillset.json
+curl -X PUT https://demoseaerafaewr.search.windows.net/skillsets/margies-custom-skillset?api-version=2020-06-30 -H "Content-Type: application/json" -H "api-key: DC6GKG3iZHoofPqHshrokUqm6m8Uzzrq6CAFN2Rk0pAzSeDp0OXe" -d @skillset.json
 
 ###
-curl -X PUT https://demoaisearch241016.search.windows.net/indexes/margies-custom-index?api-version=2020-06-30 -H "Content-Type: application/json" -H "api-key: r8llfOngzUQuH8vemC2TU6W5nM9LSuquSPwhygAJRrAzSeD3RZqR" -d @index.json
+curl -X PUT https://demoseaerafaewr.search.windows.net/indexes/margies-custom-index?api-version=2020-06-30 -H "Content-Type: application/json" -H "api-key: DC6GKG3iZHoofPqHshrokUqm6m8Uzzrq6CAFN2Rk0pAzSeDp0OXe" -d @index.json
 
 ###
-curl -X PUT https://demoaisearch241016.search.windows.net/indexers/margies-custom-indexer?api-version=2020-06-30 -H "Content-Type: application/json" -H "api-key: r8llfOngzUQuH8vemC2TU6W5nM9LSuquSPwhygAJRrAzSeD3RZqR" -d @indexer.json
+curl -X PUT https://demoseaerafaewr.search.windows.net/indexers/margies-custom-indexer?api-version=2020-06-30 -H "Content-Type: application/json" -H "api-key: DC6GKG3iZHoofPqHshrokUqm6m8Uzzrq6CAFN2Rk0pAzSeDp0OXe" -d @indexer.json

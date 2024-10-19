@@ -31,6 +31,39 @@
         ]
       },
       {
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+        "name":"#1",
+        "description": null,
+        "context": "/document/merged_content",
+        "categories": [
+          "person",
+          "Quantity",
+          "Organization",
+          "URL",
+          "Email",
+          "Location",
+          "DateTime"
+        ],
+        "defaultLanguageCode": "en",
+        "minimumPrecision": null,
+        "inputs":[
+          {
+            "name": "text",
+            "source": "/document/merged_content"
+          },
+          {
+            "name": "languageCode",
+            "source": "/document/language"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "locations",
+            "targetName": "locations"
+          }
+        ]
+      },
+      {
         "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
         "name": "#2",
         "description": null,
