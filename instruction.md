@@ -54,6 +54,7 @@ pip install azure-storage-blob
 
     python ./mslearn-ai-vision/Labfiles/01-analyze-images/Python/image-analysis/image-analysis.py
 
+
     # 全体の流れ
         - 環境変数からAzureのエンドポイントとキーを読み込む。
         - 画像を読み込み、Azure AI Visionを使って解析（キャプション生成、オブジェクト検出など）を実行する。
@@ -205,7 +206,22 @@ pip install azure-storage-blob
 
 
 ---
-# 4. Azure AI Vision カスタム モデルを使用して画像を分類する
+# 4. 顔認識
+
+
+cd ./mslearn-ai-vision/Labfiles/04-face/Python/face-api
+python ./analyze-faces.py
+
+
+
+---
+# 5. Azure AI Vision カスタム モデルを使用して画像を分類する
+
+    Custom Vision
+    https://www.customvision.ai/projects/bc30cfd6-ccc0-4269-93b2-59719631ecb1#/performance
+
+
+---
 
     Storage Account
 
@@ -220,6 +236,7 @@ pip install azure-storage-blob
     Vision Studio
 
         https://portal.vision.cognitive.azure.com/
+        demo-ai-multi-eastus
 
         Datasetを追加
         https://portal.vision.cognitive.azure.com/resource/r/c003bbfc9f6249d98fdab797f9845618/subscriptions/76acff29-d96c-4618-b187-4ab5f53172f0/datasets
@@ -235,7 +252,7 @@ pip install azure-storage-blob
 
 
 ---
-# 5. テキストの分析
+# 6. テキストの分析
 
     pip install azure-ai-textanalytics
 

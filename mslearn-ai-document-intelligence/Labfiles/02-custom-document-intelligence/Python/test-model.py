@@ -9,6 +9,10 @@ endpoint = os.getenv("DOC_INTELLIGENCE_ENDPOINT")
 key = os.getenv("DOC_INTELLIGENCE_KEY")
 model_id = os.getenv("MODEL_ID")
 
+print(endpoint)
+print(key)
+print(model_id)
+
 formUrl = "https://github.com/MicrosoftLearning/mslearn-ai-document-intelligence/blob/main/Labfiles/02-custom-document-intelligence/test1.jpg?raw=true"
 
 document_analysis_client = DocumentAnalysisClient(
