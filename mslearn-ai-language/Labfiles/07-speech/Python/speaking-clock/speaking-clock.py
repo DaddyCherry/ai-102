@@ -58,8 +58,8 @@ def TellTime():
 
 
     # Configure speech synthesis
-    # speech_config.speech_synthesis_voice_name = "en-GB-RyanNeural"
-    speech_config.speech_synthesis_voice_name = 'en-GB-George' # change this
+    speech_config.speech_synthesis_voice_name = "en-GB-RyanNeural"
+    # speech_config.speech_synthesis_voice_name = 'en-GB-George' # change this
     speech_synthesizer = speech_sdk.SpeechSynthesizer(speech_config)
     
 
@@ -69,17 +69,17 @@ def TellTime():
         print(speak.reason)
     
     # Synthesize spoken output
-    # responseSsml = " \
-    #     <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'> \
-    #         <voice name='en-GB-LibbyNeural'> \
-    #             {} \
-    #             <break strength='weak'/> \
-    #             Time to end this lab! \
-    #         </voice> \
-    #     </speak>".format(response_text)
-    # speak = speech_synthesizer.speak_ssml_async(responseSsml).get()
-    # if speak.reason != speech_sdk.ResultReason.SynthesizingAudioCompleted:
-    #     print(speak.reason)
+    responseSsml = " \
+        <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'> \
+            <voice name='en-GB-LibbyNeural'> \
+                {} \
+                <break strength='weak'/> \
+                Time to end this lab! \
+            </voice> \
+        </speak>".format(response_text)
+    speak = speech_synthesizer.speak_ssml_async(responseSsml).get()
+    if speak.reason != speech_sdk.ResultReason.SynthesizingAudioCompleted:
+        print(speak.reason)
 
     # Print the response
     print(response_text)

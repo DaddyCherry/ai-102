@@ -1,3 +1,6 @@
 /.DS_Store
 /myenv
 mslearn-ai-document-intelligence/Labfiles/.DS_Store
+*/.env
+*.env
+/mslearn-ai-language/Labfiles/07-speech/Python/speaking-clock/.env
